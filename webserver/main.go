@@ -1,4 +1,4 @@
-// This script creates a simple webserver
+// This script creates a simple webserver for Go
 package main
 
 import (
