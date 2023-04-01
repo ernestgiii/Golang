@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"myapp/packageone"
+)
 
 var one = "One"
 
@@ -9,6 +12,8 @@ func main() {
 	fmt.Println(somethingElse)
 	myFunc()
 
+	newString := packageone.PublicVar
+	fmt.Println("From packageone:", newString)
 }
 
 func myFunc() {
