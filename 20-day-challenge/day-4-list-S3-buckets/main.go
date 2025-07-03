@@ -35,4 +35,6 @@ func main() {
 		// bucket.Name is a pointer, so we dereference it using *bucket.Name
 		fmt.Printf("- %s (created on %s)\n", *bucket.Name, bucket.CreationDate.Format(time.RFC1123))
 	}
+	fmt.Printf("Total buckets: %d\n", len(result.Buckets))
+	fmt.Println("✅ Successfully listed S3 buckets")
 }
