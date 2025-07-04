@@ -38,3 +38,5 @@ func main() {
 	fmt.Printf("Total buckets: %d\n", len(result.Buckets))
 	fmt.Println("✅ Successfully listed S3 buckets")
 }
+
+// Adding line to test out Lambda/Github webhook integration
