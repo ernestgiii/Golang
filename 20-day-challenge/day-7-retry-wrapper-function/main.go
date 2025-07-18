@@ -31,7 +31,7 @@ func main() {
 			counter++
 			return fmt.Errorf("simulated error")
 		}
-		fmt.Printf("✅ Success on attempt #%d\n", counter+1)
+		fmt.Printf(" Success on attempt #%d\n", counter+1)
 		return nil
 	})
 

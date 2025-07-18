@@ -19,18 +19,18 @@ func retry(attempts int, sleep time.Duration, fn func() error) error {
 		if err == nil {
 			return nil
 		}
-		log.Printf("⚠️ Attempt %d failed: %v", i+1, err)
+		log.Printf(" Attempt %d failed: %v", i+1, err)
 		time.Sleep(sleep)
 	}
-	return fmt.Errorf("❌ all %d attempts failed: %v", attempts, err)
+	return fmt.Errorf(" all %d attempts failed: %v", attempts, err)
 }
 
 func main() {
 	cfg, err := config.LoadDefaultConfig(context.TODO())
 	if err != nil {
-		log.Fatalf("❌ Failed to load AWS config: %v", err)
+		log.Fatalf(" Failed to load AWS config: %v", err)
 	}
-	fmt.Println("✅ AWS config loaded")
+	fmt.Println(" AWS config loaded")
 
 	client := ec2.NewFromConfig(cfg)
 
@@ -46,11 +46,11 @@ func main() {
 	})
 
 	if err != nil {
-		log.Fatalf("❌ Failed to describe EC2 instances: %v", err)
+		log.Fatalf(" Failed to describe EC2 instances: %v", err)
 	}
 
-	// ✅ Print instance info
-	fmt.Println("🖥️ EC2 Instances:")
+	//  Print instance info
+	fmt.Println(" EC2 Instances:")
 	for _, reservation := range result.Reservations {
 		for _, instance := range reservation.Instances {
 			instanceID := *instance.InstanceId

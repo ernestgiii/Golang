@@ -26,20 +26,20 @@ func main() {
 	// Load existing env variables from file
 	envMap, err := godotenv.Read(envFile)
 	if err != nil {
-		log.Fatalf("❌ Failed to load .env file: %v", err)
+		log.Fatalf(" Failed to load .env file: %v", err)
 	}
 
 	switch command {
 
 	case "list":
-		fmt.Println("📜 Environment Variables:")
+		fmt.Println(" Environment Variables:")
 		for k, v := range envMap {
 			fmt.Printf("%s=%s\n", k, v)
 		}
 
 	case "get":
 		if len(os.Args) < 3 {
-			fmt.Println("❗ Usage: get <key>")
+			fmt.Println("Usage: get <key>")
 			return
 		}
 
@@ -48,11 +48,11 @@ func main() {
 		if exists {
 			fmt.Printf("%s=%s\n", key, value)
 		} else {
-			fmt.Printf("❌ Key '%s' not found.\n", key)
+			fmt.Printf("Key '%s' not found.\n", key)
 		}
 	case "set":
 		if len(os.Args) < 4 {
-			fmt.Println("❗ Usage: set <key> <value>")
+			fmt.Println("Usage: set <key> <value>")
 			return
 		}
 		key := os.Args[2]
@@ -64,11 +64,11 @@ func main() {
 		// Save the updated map back to the file
 		err := godotenv.Write(envMap, envFile)
 		if err != nil {
-			log.Fatalf("❌ Failed to write to .env: %v", err)
+			log.Fatalf("Failed to write to .env: %v", err)
 		}
-		fmt.Printf("✅ %s set to %s\n", key, value)
+		fmt.Printf(" %s set to %s\n", key, value)
 
 	default:
-		fmt.Println("❌ Unknown command. Try: list, get, or set.")
+		fmt.Println("Unknown command. Try: list, get, or set.")
 	}
 }

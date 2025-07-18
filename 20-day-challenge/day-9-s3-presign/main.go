@@ -27,7 +27,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("unable to load SDK config, %v", err)
 	}
-	fmt.Println("✅ AWS configuration loaded successfully")
+	fmt.Println(" AWS configuration loaded successfully")
 
 	client := s3.NewFromConfig(cfg)
 	// Create a presigner
@@ -41,10 +41,10 @@ func main() {
 	}, s3.WithPresignExpires(1*time.Hour))
 
 	if err != nil {
-		log.Fatalf("❌ Failed to generate pre-signed URL: %v", err)
+		log.Fatalf(" Failed to generate pre-signed URL: %v", err)
 	}
 
-	fmt.Println("✅ Pre-signed URL generated successfully:")
+	fmt.Println(" Pre-signed URL generated successfully:")
 	fmt.Println(urlOut.URL)
 	fmt.Println("You can use this URL to access the object in S3 for the next hour.")
 
